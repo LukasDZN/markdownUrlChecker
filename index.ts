@@ -1,9 +1,12 @@
-// Goal is internal link checking, not sorting (yet), so newlines are less relevant
-
 import { headerObject } from './interfaces'
 import parseStringToCreateInternalLinksArray from "./helper/parseStringToCreateInternalLinksArray"
 import convertHeaderTitleToInternalLink from "./helper/convertHeaderTitleToInternalLink"
-import recursiveAllPossibleInternalLinksArrayBuilding from "./helper/recursiveAllPossibleInternalLinksArrayBuilding"
+import recursiveAllPossibleInHrefLinksArrayBuilding from "./helper/recursiveAllPossibleInHrefLinksArrayBuilding"
+// import headerArrayOfObjects from "./helper/headerArrayOfObjects"
+
+
+// Goal is internal link checking, not sorting (yet), so newlines are less relevant
+
 
 // """
 // ## My header
@@ -21,8 +24,6 @@ import recursiveAllPossibleInternalLinksArrayBuilding from "./helper/recursiveAl
 // parse those files
 
 
-
-
 // Which methods will I need? For internal link checking for example (include this with markdown header sorter)
     // Most efficient way of comparing?
         // Build an array of possible internal links and check if it's in array?
@@ -38,10 +39,3 @@ import recursiveAllPossibleInternalLinksArrayBuilding from "./helper/recursiveAl
 // - Get all possible URLs
 // - Sort by selected level
 // - Sort everything
-
-
-
-
-
-
-
