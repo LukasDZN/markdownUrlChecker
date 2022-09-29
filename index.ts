@@ -85,21 +85,21 @@ const convertHeaderTitleToInternalLink = (headerTitle: string): string => {
 
 const allPossibleInternalLinks: Array<string> = []
 			
-const recursiveAllPossibleInternalLinksArrayBuilding = (levelXHeadersArrayOfObjects: Array<headerObject>, headerLevel: number = 1) => {
+// const recursiveAllPossibleInternalLinksArrayBuilding = (levelXHeadersArrayOfObjects: Array<headerObject>, headerLevel: number = 1) => {
 
-	if (levelXHeadersArrayOfObjects.length !== 0 && headerLevel < 7) {
+// 	if (levelXHeadersArrayOfObjects.length !== 0 && headerLevel < 7) {
 	
-		const newHeaderLevel = headerLevel + 1
+// 		const newHeaderLevel = headerLevel + 1
 		
-		levelXHeadersArrayOfObjects.forEach(headerObject) {
-			allPossibleInternalLinks.push(headerLevel === 1 ? '#' : '--' + convertHeaderTitleToInternalLink(headerObject.headerTitle))
-			headerObject.childHeadersArrayOfObjects.forEach(childHeadersArrayOfObjects => {
-				recursiveAllPossibleInternalLinksArrayBuilding(childHeadersArrayOfObjects, newHeaderLevel)
-			})
-		}
+// 		levelXHeadersArrayOfObjects.forEach(headerObject: headerObject) {
+// 			allPossibleInternalLinks.push(headerLevel === 1 ? '#' : '--' + convertHeaderTitleToInternalLink(headerObject.headerTitle))
+// 			headerObject.childHeadersArrayOfObjects.forEach(childHeadersArrayOfObjects => {
+// 				recursiveAllPossibleInternalLinksArrayBuilding(childHeadersArrayOfObjects, newHeaderLevel)
+// 			})
+// 		}
 	
-	}
-}
+// 	}
+// }
 
 console.log(allPossibleInternalLinks)
 

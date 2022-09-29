@@ -4,8 +4,8 @@ describe('mainTestGroup', () => {
 
 	it('Test markdown string file type is string.', () => {
 		// Get test markdown string
-		const string = fs.readFileSync('./testMarkdownString.md', {encoding:'utf8', flag:'r'})
-		expect(typeOf(string)).toBe('string')
+		const markdownString: string = fs.readFileSync('./tests/testMarkdownString.md', {encoding:'utf8', flag:'r'})
+		expect(typeof markdownString).toBe('string')
 	})
 
 	// Expected header object
