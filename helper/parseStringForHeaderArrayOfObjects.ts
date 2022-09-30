@@ -11,6 +11,39 @@
 // // Get header object child headers
 // const childHeaderRegex = ''
 
+
+
+
+
+
+
+// (?!\n#) -> works, but includes newline
+// ^#[\s\S]+?\n#
+
+let headerLevelHashtags = '#'
+const headerStringRegex = `^${headerLevelHashtags}[\s\S]+?\n${headerLevelHashtags}`
+// const headerString: Array<string> = markdownString.match(//g)
+
+
+// JS will need to dynamically specify how many # it should match.
+
+// Because now, it doesn't match from ## to another ## but rather from ## to ###:
+
+// ## dsa
+
+// ### fds
+
+// ### dadas
+
+// ## asd
+
+
+
+
+
+
+
+
 const parseStringForHeaderArrayOfObjects = (string: string) => {
     // ...
 }
