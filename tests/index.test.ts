@@ -2,7 +2,7 @@ import fs from "fs";
 import parseStringToCreateInternalLinksArray from "../helper/parseStringToCreateInternalLinksArray"
 import convertHeaderTitleToInternalLink from "../helper/convertHeaderTitleToInternalLink"
 import recursiveAllPossibleInHrefLinksArrayBuilding from "../helper/recursiveAllPossibleInHrefLinksArrayBuilding"
-// import headerArrayOfObjects from "../helper/headerArrayOfObjects"
+// import parseStringForHeaderArrayOfObjects from "../helper/parseStringForHeaderArrayOfObjects"
 
 // Documentation: https://jestjs.io/docs/using-matchers
 // toBe for primitives like strings, numbers or booleans for everything else use toEqual // https://stackoverflow.com/questions/45195025/what-is-the-difference-between-tobe-and-toequal-in-jest
@@ -46,8 +46,58 @@ describe('mainTestGroup', () => {
 		]
 		expect(internalLinkArray?.sort()).toEqual(expectedArray.sort())
 	})
+	// Raise warning if internal link does not have a # in the list above ^
 
 	// Expected header object
+	// it('Header object created', () => {
+	// 	const expectedHeaderArrayOfObjects = Array(
+	// 		// const headerArrayOfObjects = [
+	// 		//         {
+	// 		//             headerTitle: "# something",
+	// 		//             headerContentText: "some text",
+	// 		//             childHeadersArrayOfObjects: [
+	// 		//                 {
+	// 		//                     headerTitle: "## something2",
+	// 		//                     headerContentText: "some text",
+	// 		//                     childHeadersArrayOfObjects: [
+	// 		//                         {...},
+	// 		//                         {...}
+	// 		//                     ]
+	// 		//                 }
+	// 		//             ]
+	// 		//         }	
+	// 		// ]
+	// 	)
+	// 	const resultHeaderArrayOfObjects = parseStringForHeaderArrayOfObjects(markdownString)
+	// 	expect(resultHeaderArrayOfObjects).toMatchObject(expectedHeaderArrayOfObjects)  // Or  .toStrictEqual
+	// })
+
+	// convertHeaderTitleToInternalLink
+	it('Header title converted to internal link.', () => {
+		const testStringsRawAndResult = [
+			["# Foo", "foo"],
+			["## Foo fee", "foo-fee"],
+
+			// PM API: #### Transaction not permitted to issuer/cardholder
+			[" ##  Foo Fee / Fa", "foo-fee-fa"], 
+			[" ##  Foo Fee/Fa", "foo-feefa"],
+
+			["# Get CVC2 ", "get-cvc2"]
+		]
+
+		const expectedArray = Array()
+		testStringsRawAndResult.map(arrayElement => {
+			expectedArray.push(arrayElement[1])
+		})
+
+		const resultArray = Array()
+		testStringsRawAndResult.forEach(arrayElement => {
+			const processedString = convertHeaderTitleToInternalLink(arrayElement[1])
+			resultArray.push(processedString)
+		})
+
+		expect(resultArray.sort()).toEqual(expectedArray.sort())
+	})
 
 	// Expected allPossibleInternalLinks
 	// it('', recursiveAllPossibleInHrefLinksArrayBuilding(markdownString)

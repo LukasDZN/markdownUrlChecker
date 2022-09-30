@@ -236,6 +236,47 @@ Sort by selected header level -> this should be a multi-select.
 
 
 
+// Goal is internal link checking, not sorting (yet), so newlines are less relevant
+
+
+// """
+// ## My header
+
+// text
+// <newline>
+// """
+
+// // Try to read all .md files
+// open ./public/docs/../.. 
+// read all .md files
+
+// OR 
+// detect .md files that have been changed
+// parse those files
+
+
+// Which methods will I need? For internal link checking for example (include this with markdown header sorter)
+    // Most efficient way of comparing?
+        // Build an array of possible internal links and check if it's in array?
+        // Deconstruct each link some--fee-fo--loo to "# some", "## fee fo", "### loo" - however, this is minimized, the header title could be "## fee fo" or ##Fee Fo ", so it's better to normalize it and not de-normalize it. Include only raw data in the object. Add methods to process the data.
+// Simply select using regex?
+// Make it more robust - headers can have either a newline before/after it or not.
+// Setting to either have or not have newlines before/after headers, as the collected data is raw and the output is formatted. 
+
+// Build an object with methods such as:
+// myObject.levelOneHeaders()  // returns an array
+
+// Will I be able to:
+// - Get all possible URLs
+// - Sort by selected level
+// - Sort everything
+
+
+
+
+
+
+
 # Header1
 
 header text1
@@ -267,7 +308,9 @@ Now it's just down itself. Not even SSH works - why? Try local ip ssh?
 
 
 
+Delete github history
+Upload to npm package site
+Begin coding the object builder with regex.
 
 
-
-
+There can be a ### heading right aftr # 

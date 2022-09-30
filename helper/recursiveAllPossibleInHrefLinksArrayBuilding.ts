@@ -1,6 +1,24 @@
 import { headerObject } from '../interfaces'
 import convertHeaderTitleToInternalLink from "./convertHeaderTitleToInternalLink"
 
+// It should read this:
+// const headerArrayOfObjects = [
+//         {
+//             headerTitle: "# something",
+//             headerContentText: "some text",
+//             childHeadersArrayOfObjects: [
+//                 {
+//                     headerTitle: "## something2",
+//                     headerContentText: "some text",
+//                     childHeadersArrayOfObjects: [
+//                         {...},
+//                         {...}
+//                     ]
+//                 }
+//             ]
+//         }	
+// ]
+
 const recursiveAllPossibleInHrefLinksArrayBuilding = (levelXHeadersArrayOfObjects: Array<headerObject>) => {
     const allPossibleInternalLinks: Array<string> = []
     const levelXHeadersArrayOfObjectsPassedDown: Array<headerObject> = levelXHeadersArrayOfObjects
