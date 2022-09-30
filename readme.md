@@ -211,9 +211,8 @@ https://docs.google.com/spreadsheets/d/1wd9wn2qSwoDGb23daatX-q73BnBz-leXb58li983
 
 
 
-Chrome extension check why page is not openned
 Check commited cardframe changes
-Recalculate charcs  / words on load example and clear button click, also zoom out (parent px, all other should be rem)
+Recalculate chars  / words on load example and clear button click, also zoom out (parent px, all other should be rem)
 A function for building an object from markdown text:
 
 
@@ -225,6 +224,8 @@ Write code and send to Dziugas.
 			
 1 on 1 meeting with Laura in 2 weeks. Chrome extension, chrome theme, CI/CD tool for internal link checking, tampermonkey templates might be done.
 Bring raspberry to the office? More reliable internet, no need to connect to VPN, Laura or someone else can reset it.
+lk 1-on-1 topic - naikint Friday report sheet'us, priešistorė, Vytauto pritarimas, dabartinė situacija su scriptais ir jų maintenance, privalumai, ir kaip tai padarytumėm. 
+
 
 Sort by selected header level -> this should be a multi-select.
 
