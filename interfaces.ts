@@ -1,7 +1,7 @@
 interface headerObject {
     headerTitle: string,
-    headerContent: string,
-    childHeadersArrayOfObjects: Array<headerObject>
+    headerContentText: string,
+    childHeadersArrayOfObjects: Array<headerObject> | string
 }
 
 export {
