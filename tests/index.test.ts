@@ -2,7 +2,7 @@ import fs from "fs";
 import parseStringToCreateInternalLinksArray from "../helper/parseStringToCreateInternalLinksArray"
 import convertHeaderTitleToInternalLink from "../helper/convertHeaderTitleToInternalLink"
 import recursiveAllPossibleInHrefLinksArrayBuilding from "../helper/recursiveAllPossibleInHrefLinksArrayBuilding"
-// import parseStringForHeaderArrayOfObjects from "../helper/parseStringForHeaderArrayOfObjects"
+import parseStringForHeaderArrayOfObjects from "../helper/parseStringForHeaderArrayOfObjects"
 
 // Documentation: https://jestjs.io/docs/using-matchers
 // toBe for primitives like strings, numbers or booleans for everything else use toEqual // https://stackoverflow.com/questions/45195025/what-is-the-difference-between-tobe-and-toequal-in-jest
@@ -49,7 +49,7 @@ describe('mainTestGroup', () => {
 	// Raise warning if internal link does not have a # in the list above ^
 
 	// Expected header object
-	it('Header object created', () => {
+	it.only('Header object created', () => {
 		// const expectedHeaderArrayOfObjects = Array(
 		// 	{
 		// 		headerTitle: "# Introduction",
@@ -66,7 +66,7 @@ describe('mainTestGroup', () => {
 		// 	}	
 		// )
 		const resultHeaderArrayOfObjects = parseStringForHeaderArrayOfObjects(markdownString)
-		console.log(resultHeaderArrayOfObjects)
+		// console.log(resultHeaderArrayOfObjects)
 		// expect(resultHeaderArrayOfObjects).toMatchObject(expectedHeaderArrayOfObjects)  // Or  .toStrictEqual
 	})
 

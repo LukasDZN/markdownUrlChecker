@@ -1,39 +1,4 @@
-<!--
- # Introduction
- ## Using documentation
- ## API
- ### Overview
- Learn about the ISAAC Program manager API endpoints and operations.
-
- Scheme - payment network (Mastercard, VISA, UPI, External Payment, Internal
- Payment, etc);
- Platform - any of ISAAC processor's parts, modules, operations;
- Client - service, TAI API user.
-
- ### Common workflows
-  -->
-# Introduction
-
-teest
-tt
-
-e
-
-## Security
-
-**Please make sure to read the appendix [`Security`](#appendix--security) before proceeding to use this API.**
-
-## Version
-
-To see the current version and details of recent changes, please see the [`Changelog`](#appendix--changelog)
-
-%brandName% reserves the right to append Conditional 'C' and/or Optional 'O' fields without prior notice. The client's system/application should be prepared to accept the appended fields. All such changes will be Backward Compatible and shouldn't change the application logic.
-
-All Backward Incompatible changes (related to the mandatory 'M' field) will be introduced ONLY with a new PM API [`version release`](#appendix--version-guide)
-
 # Actions
-
-something
 
 ## Account
 
