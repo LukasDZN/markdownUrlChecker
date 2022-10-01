@@ -315,3 +315,12 @@ Begin coding the object builder with regex.
 
 
 There can be a ### heading right aftr # 
+
+
+# Decision making backlog
+// The point is to get all possible combinations
+// Or make a function that checks whether a combination is available? -> Chosen solution.
+    // Might be hard to build an internal link on-demand
+        // Given an example: "#appendix--enum--default-charsets"
+        // It's difficult to search for "###  Default char/sets", and the search has to begin from "#appendix--enum--default-charsets".
+            // The texts are not too long to make all possible combinations.

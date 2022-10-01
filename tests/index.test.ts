@@ -4,6 +4,7 @@ import parseStringToCreateInternalLinksArray from '../helper/parseStringToCreate
 import convertHeaderTitleToInternalLink from '../helper/convertHeaderTitleToInternalLink';
 import recursiveAllPossibleInHrefLinksArrayBuilding from '../helper/recursiveAllPossibleInHrefLinksArrayBuilding';
 import parseStringForHeaderArrayOfObjects from '../helper/parseStringForHeaderArrayOfObjects';
+import raiseWarningsForInvalidInternalLinks from '../helper/raiseWarningsForInvalidInternalLinks'
 
 // Documentation: https://jestjs.io/docs/using-matchers
 // toBe for primitives like strings, numbers or booleans for everything else use toEqual // https://stackoverflow.com/questions/45195025/what-is-the-difference-between-tobe-and-toequal-in-jest
@@ -15,14 +16,22 @@ describe('mainTestGroup', () => {
         encoding: 'utf8',
         flag: 'r'
     });
+    const internalLinkArray: Array<string> = parseStringToCreateInternalLinksArray(markdownString);
     const resultHeaderArrayOfObjects: any = parseStringForHeaderArrayOfObjects(markdownString);
+    const resultAllPossibleInternalLinksArray: any = recursiveAllPossibleInHrefLinksArrayBuilding(resultHeaderArrayOfObjects)
+
+
+
 
     it('Markdown string file type is string.', () => {
         expect(typeof markdownString).toBe('string');
     });
 
-    it('Parse markdown string file for internal links', () => {
-        const internalLinkArray = parseStringToCreateInternalLinksArray(markdownString);
+
+
+
+
+    it('Parse markdown string file for internal links.', () => {
         const expectedArray: Array<string> = [
             '#appendix--security',
             '#appendix--changelog',
@@ -52,10 +61,8 @@ describe('mainTestGroup', () => {
         ];
         expect(internalLinkArray?.sort()).toEqual(expectedArray.sort());
     });
-    // Raise warning if internal link does not have a # in the list above ^
 
-    // Expected header object
-    it.only('Header object created', () => {
+    it('Header object created.', () => {
         const expectedHeaderArrayOfObjects = [
             {
                 headerTitle: '# Introduction',
@@ -158,15 +165,19 @@ describe('mainTestGroup', () => {
         expect(resultHeaderArrayOfObjects?.sort()).toEqual(expectedHeaderArrayOfObjects.sort())
     });
 
-    // convertHeaderTitleToInternalLink
+
+
+
     it('Header title converted to internal link.', () => {
         const testStringsRawAndResult = [
             ['# Foo', 'foo'],
             ['## Foo fee', 'foo-fee'],
 
             // PM API: #### Transaction not permitted to issuer/cardholder
-            [' ##  Foo Fee / Fa', 'foo-fee-fa'],
-            [' ##  Foo Fee/Fa', 'foo-feefa'],
+            [' ##  Foo Fee / Fa ', 'foo-fee-fa'],
+            [' ##  Foo Fee      Fa ', 'foo-fee-fa'],
+            ['    ##  Foo Fee/Fa', 'foo-feefa'],
+            ['    ##  Foo Fee/  &Fa', 'foo-fee-fa'],
 
             ['# Get CVC2 ', 'get-cvc2']
         ];
@@ -178,30 +189,38 @@ describe('mainTestGroup', () => {
 
         const resultArray = Array();
         testStringsRawAndResult.forEach((arrayElement) => {
-            const processedString = convertHeaderTitleToInternalLink(arrayElement[1]);
+            const processedString = convertHeaderTitleToInternalLink(arrayElement[0]);
             resultArray.push(processedString);
         });
 
         expect(resultArray.sort()).toEqual(expectedArray.sort());
     });
 
-    // Expected allPossibleInternalLinks
     it('Array of all possible internal links created.', () => {
         // const expectedArray: Array<string> = [
         //     ''
         // ]
-        const resultArray: any = recursiveAllPossibleInHrefLinksArrayBuilding(resultHeaderArrayOfObjects)
-        console.log(resultArray)
+        // console.log(resultAllPossibleInternalLinksArray)
         // expect(resultArray.sort()).toEqual(expectedArray.sort());
     })
 
+
+
+
+
+    // it('Raise warnings for invalid internal links.', () => {
+    //     const expectedWarningArray: Array<string> = [
+    //         'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.',
+    //     ]
+    //     const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
+    //     console.log(resultWarningArray)
+    //     // expect(resultWarningArray.sort()).toEqual(expectedWarningArray.sort());
+    // })
+
+    // How it works
     // 1. [DONE 01/10/2022] Parser creates an object from markdown.
     // 2. [IN-PROGRESS] Another parser creates an array with all possible valid urls
     // 3. [DONE 01/10/2022] Get all existing internal links from the doc
     // 4. [PENDING] Compare them against a list of valid possible links - throw errors and suggestions. 
 
-    // Expected warnings thrown
-    // const warningsArray = [
-    // 	'WARNING in line 32: Internal link "#test--test)" is not valid. Such header name and/or header nesting order does not exist.'
-    // ]
 });
