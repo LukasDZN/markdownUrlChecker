@@ -49,28 +49,26 @@ describe('mainTestGroup', () => {
 	// Raise warning if internal link does not have a # in the list above ^
 
 	// Expected header object
-	// it('Header object created', () => {
-	// 	const expectedHeaderArrayOfObjects = Array(
-	// 		// const headerArrayOfObjects = [
-	// 		//         {
-	// 		//             headerTitle: "# something",
-	// 		//             headerContentText: "some text",
-	// 		//             childHeadersArrayOfObjects: [
-	// 		//                 {
-	// 		//                     headerTitle: "## something2",
-	// 		//                     headerContentText: "some text",
-	// 		//                     childHeadersArrayOfObjects: [
-	// 		//                         {...},
-	// 		//                         {...}
-	// 		//                     ]
-	// 		//                 }
-	// 		//             ]
-	// 		//         }	
-	// 		// ]
-	// 	)
-	// 	const resultHeaderArrayOfObjects = parseStringForHeaderArrayOfObjects(markdownString)
-	// 	expect(resultHeaderArrayOfObjects).toMatchObject(expectedHeaderArrayOfObjects)  // Or  .toStrictEqual
-	// })
+	it('Header object created', () => {
+		// const expectedHeaderArrayOfObjects = Array(
+		// 	{
+		// 		headerTitle: "# Introduction",
+		// 		headerContentText: "some text",
+		// 		childHeadersArrayOfObjects: [
+		// 			{
+		// 				headerTitle: "## something2",
+		// 				headerContentText: "some text",
+		// 				childHeadersArrayOfObjects: [
+							
+		// 				]
+		// 			}
+		// 		]
+		// 	}	
+		// )
+		const resultHeaderArrayOfObjects = parseStringForHeaderArrayOfObjects(markdownString)
+		console.log(resultHeaderArrayOfObjects)
+		// expect(resultHeaderArrayOfObjects).toMatchObject(expectedHeaderArrayOfObjects)  // Or  .toStrictEqual
+	})
 
 	// convertHeaderTitleToInternalLink
 	it('Header title converted to internal link.', () => {
