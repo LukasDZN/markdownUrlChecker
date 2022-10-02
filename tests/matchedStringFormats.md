@@ -1,32 +1,36 @@
-"""# Introduction
+something
 
-this is some
+## Enum
 
-teeeeexxxxtt
+### Account status
 
-also some text more
+| ID | Type         | Description                      |
+|----|--------------|----------------------------------|
+| A  | Active       |                                  |
+| R  | Receive only |                                  |
+| P  | Spend only   |                                  |
+| S  | Suspended    |                                  |
+| B  | Blocked      | Final status for closed account. |
 
-## Security
+### Authorization type
 
-**Please make sure to read the appendix [`Security`](#appendix--security) before proceeding to use this API.**
+| Type | Description        |
+|------|--------------------|
+| AN   | Normal authorize   |
+| AP   | Pre authorize      |
+| AF   | Final authorize    |
 
-## Version
 
-To see the current version and details of recent changes, please see the [`Changelog`](#appendix--changelog)
 
-%brandName% reserves the right to append Conditional 'C' and/or Optional 'O' fields without prior notice. The client's system/application should be prepared to accept the appended fields. All such changes will be Backward Compatible and shouldn't change the application logic.
 
-All Backward Incompatible changes (related to the mandatory 'M' field) will be introduced ONLY with a new PM API [`version release`](#appendix--version-guide)
 
-# Actions
 
-## Account
 
-### Create
 
-| URL  | Method | Header | Body            |
-|------|--------|--------|-----------------|
-| /api | POST   | empty  | \{request data} |"""
+
+
+
+
 
 // Do not include any newlines before or after - regex must be able to:
 1. Match strings with least formatting applied.
@@ -75,5 +79,17 @@ All Backward Incompatible changes (related to the mandatory 'M' field) will be i
 | URL  | Method | Header | Body            |
 |------|--------|--------|-----------------|
 | /api | POST   | empty  | \{request data} |"
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,7 +1,10 @@
 import fs from 'fs';
 import { headerObject } from '../interfaces';
 import parseStringToCreateInternalLinksArray from '../helper/parseStringToCreateInternalLinksArray';
-import { convertHeaderTitleToInternalLink, recursiveAllPossibleInHrefLinksArrayBuilding } from '../helper/recursiveAllPossibleInHrefLinksArrayBuilding';
+import {
+    convertHeaderTitleToInternalLink,
+    recursiveAllPossibleInHrefLinksArrayBuilding
+} from '../helper/recursiveAllPossibleInHrefLinksArrayBuilding';
 import parseStringForHeaderArrayOfObjects from '../helper/parseStringForHeaderArrayOfObjects';
 import raiseWarningsForInvalidInternalLinks from '../helper/raiseWarningsForInvalidInternalLinks';
 
@@ -17,18 +20,13 @@ describe('mainTestGroup', () => {
     });
     const internalLinkArray: Array<string> = parseStringToCreateInternalLinksArray(markdownString);
     const resultHeaderArrayOfObjects: any = parseStringForHeaderArrayOfObjects(markdownString);
-    const resultAllPossibleInternalLinksArray: any = recursiveAllPossibleInHrefLinksArrayBuilding(resultHeaderArrayOfObjects)
-
-
-
+    const resultAllPossibleInternalLinksArray: any = recursiveAllPossibleInHrefLinksArrayBuilding(
+        resultHeaderArrayOfObjects
+    );
 
     it('Markdown string file type is string.', () => {
         expect(typeof markdownString).toBe('string');
     });
-
-
-
-
 
     it('Parse markdown string file for internal links.', () => {
         const expectedArray: Array<string> = [
@@ -161,11 +159,8 @@ describe('mainTestGroup', () => {
                 ]
             }
         ];
-        expect(resultHeaderArrayOfObjects?.sort()).toEqual(expectedHeaderArrayOfObjects.sort())
+        expect(resultHeaderArrayOfObjects?.sort()).toEqual(expectedHeaderArrayOfObjects.sort());
     });
-
-
-
 
     it('Header title converted to internal link.', () => {
         const testStringsRawAndResult = [
@@ -214,23 +209,21 @@ describe('mainTestGroup', () => {
             '#actions--account--assign-to-risk-rule-group',
             '#actions--account--assign-to-risk-rule-group--request',
             '#actions--account--assign-to-risk-rule-group--response'
-        ]
+        ];
         // console.log(resultAllPossibleInternalLinksArray)
         expect(resultAllPossibleInternalLinksArray.sort()).toEqual(expectedArray.sort());
-    })
+    });
 
-
-
-
-
-    it('Raise warnings for invalid internal links.', () => {
+    it.only('Raise warnings for invalid internal links.', () => {
         const expectedWarningArray: Array<string> = [
-            'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.',
-        ]
+            'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.'
+        ];
         // console.log(internalLinkArray)
-        const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
-        console.log(resultWarningArray)
+        const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(
+            internalLinkArray,
+            resultAllPossibleInternalLinksArray
+        );
+        console.log(resultWarningArray);
         // expect(resultWarningArray.sort()).toEqual(expectedWarningArray.sort());
-    })
-
+    });
 });

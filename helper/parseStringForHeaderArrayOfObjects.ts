@@ -27,10 +27,9 @@ const parseStringForHeaderArrayOfObjects = (initialMarkdownString: string) => {
         // Match parent sub-categories
         const headerTitleRegex = new RegExp(`^${headerLevelHashtags}\\s.+`, 'mi'); // Regex explanation: match header up until a newline
         const headerContentTextRegex = new RegExp(
-            `(?<![\\r\\n])^[\\s\\S]+?(?=\\n${headerDelimiter})`,
+            `(?<![\\r\\n])^[^${headerDelimiter}][\\s\\S]+?(?=\\n${headerDelimiter})`,
             'mi'
-        ); // Regex explanation: All text from beginning of document, stop if there's a newline with header delimiter
-
+        ); // Regex explanation: All text from beginning of document, except if it's a header, stop if there's a newline with header delimiter
         // For each parent
         headerStringArray.forEach((headerString) => {
             const headerStringIterator = () => {
@@ -50,7 +49,7 @@ const parseStringForHeaderArrayOfObjects = (initialMarkdownString: string) => {
                 if (headerContentTextArray === null) {
                     headerContentTextArray = [''];
                 }
-                const headerContentText = headerContentTextArray[0];
+                const headerContentText = headerContentTextArray[0].trim();
                 // Content for children
                 const childHeadersString = headerStringWithoutHeaderTitle
                     .replace(headerContentText, '')
