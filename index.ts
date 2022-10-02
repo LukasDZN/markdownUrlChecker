@@ -22,13 +22,14 @@ fs.readdirSync(inputFolderName).forEach((filename) => {
         allPossibleInternalLinksArray
     );
     if (warningArray.length !== 0) {
-        const resultString = `Filename: "${filename}",\n${warningArray}`
-        const outlineSymbols = '-'.repeat(resultString.length)
+        const prettyArray = JSON.stringify(warningArray, null, 2).replace(/\\/g, '');
+        const resultString = `Filename: "${filename}"\nWarning array:\n${prettyArray}`;
+        const outlineSymbols = '-'.repeat(150);
         console.log('\n' + outlineSymbols + '\n' + resultString + '\n' + outlineSymbols);
         fileWithErrorCount++;
     }
     fileCount++;
 });
-const resultString = `Results: ${fileCount} files were checked, ${fileWithErrorCount} had warnings.`
-const outlineSymbols = '='.repeat(resultString.length)
+const resultString = `Results: ${fileCount} files were checked, ${fileWithErrorCount} had warnings.`;
+const outlineSymbols = '='.repeat(resultString.length);
 console.log('\n' + outlineSymbols + '\n' + resultString + '\n' + outlineSymbols + '\n');
