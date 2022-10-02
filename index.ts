@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { headerObject } from './interfaces';
-import parseStringToCreateInternalLinksArray from './helper/parseStringToCreateInternalLinksArray';
-import recursiveAllPossibleInHrefLinksArrayBuilding from './helper/recursiveAllPossibleInHrefLinksArrayBuilding';
-import parseStringForHeaderArrayOfObjects from './helper/parseStringForHeaderArrayOfObjects';
-import raiseWarningsForInvalidInternalLinks from './helper/raiseWarningsForInvalidInternalLinks';
+import { headerObject } from './interfaces.js';
+import parseStringToCreateInternalLinksArray from './helper/parseStringToCreateInternalLinksArray.js';
+import { recursiveAllPossibleInHrefLinksArrayBuilding } from './helper/recursiveAllPossibleInHrefLinksArrayBuilding.js';
+import parseStringForHeaderArrayOfObjects from './helper/parseStringForHeaderArrayOfObjects.js';
+import raiseWarningsForInvalidInternalLinks from './helper/raiseWarningsForInvalidInternalLinks.js';
 
 const inputFolderName = 'input';
 fs.readdirSync(inputFolderName).forEach((filename) => {

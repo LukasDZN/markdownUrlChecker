@@ -3,11 +3,20 @@ const parseStringToCreateInternalLinksArray = (markdownString: string) => {
     const internalLinksArrayWithRegexGroups = [...markdownString.matchAll(/\[.+?\]\((.+?)\)/g)];
     let internalLinksArray = Array();
     internalLinksArrayWithRegexGroups.forEach((arrayItem) => {
-        internalLinksArray.push(arrayItem[1]);
-        if (arrayItem[1].startsWith('#') === false) {
-            console.log(
-                `WARNING: Internal link "(${arrayItem[1]})" does not start with "#". Did you mean "(#${arrayItem[1]})"?`
-            );
+        const internalLink = arrayItem[1];
+        if (
+            internalLink.startsWith('%') === false &&
+            internalLink.endsWith('.png') === false &&
+            internalLink.endsWith('.jpg') === false &&
+            internalLink.endsWith('.jpeg') === false &&
+            internalLink.endsWith('.svg') === false 
+        ) {
+            internalLinksArray.push(internalLink);
+            if (internalLink.startsWith('#') === false) {
+                console.log(
+                    `WARNING: Internal link "(${arrayItem[1]})" does not start with "#". Did you mean "(#${arrayItem[1]})"?`
+                );
+            }
         }
     });
     if (!internalLinksArray) {

@@ -1,10 +1,9 @@
 import fs from 'fs';
 import { headerObject } from '../interfaces';
 import parseStringToCreateInternalLinksArray from '../helper/parseStringToCreateInternalLinksArray';
-import convertHeaderTitleToInternalLink from '../helper/convertHeaderTitleToInternalLink';
-import recursiveAllPossibleInHrefLinksArrayBuilding from '../helper/recursiveAllPossibleInHrefLinksArrayBuilding';
+import { convertHeaderTitleToInternalLink, recursiveAllPossibleInHrefLinksArrayBuilding } from '../helper/recursiveAllPossibleInHrefLinksArrayBuilding';
 import parseStringForHeaderArrayOfObjects from '../helper/parseStringForHeaderArrayOfObjects';
-import raiseWarningsForInvalidInternalLinks from '../helper/raiseWarningsForInvalidInternalLinks'
+import raiseWarningsForInvalidInternalLinks from '../helper/raiseWarningsForInvalidInternalLinks';
 
 // Documentation: https://jestjs.io/docs/using-matchers
 // toBe for primitives like strings, numbers or booleans for everything else use toEqual // https://stackoverflow.com/questions/45195025/what-is-the-difference-between-tobe-and-toequal-in-jest
@@ -229,15 +228,9 @@ describe('mainTestGroup', () => {
             'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.',
         ]
         // console.log(internalLinkArray)
-        // const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
-        // console.log(resultWarningArray)
+        const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
+        console.log(resultWarningArray)
         // expect(resultWarningArray.sort()).toEqual(expectedWarningArray.sort());
     })
-
-    // How it works
-    // 1. [DONE 01/10/2022] Parser creates an object from markdown.
-    // 2. [DONE 02/10/2022] Another parser creates an array with all possible valid urls
-    // 3. [DONE 01/10/2022] Get all existing internal links from the doc
-    // 4. [PENDING] Compare them against a list of valid possible links - throw errors and suggestions. 
 
 });

@@ -324,3 +324,13 @@ There can be a ### heading right aftr #
         // Given an example: "#appendix--enum--default-charsets"
         // It's difficult to search for "###  Default char/sets", and the search has to begin from "#appendix--enum--default-charsets".
             // The texts are not too long to make all possible combinations.
+
+
+
+
+
+// How it works
+// 1. [DONE 01/10/2022] Parser creates an object from markdown.
+// 2. [DONE 02/10/2022] Another parser creates an array with all possible valid urls
+// 3. [DONE 01/10/2022] Get all existing internal links from the doc
+// 4. [DONE 02/10/2022] Compare them against a list of valid possible links - throw errors and suggestions. 
