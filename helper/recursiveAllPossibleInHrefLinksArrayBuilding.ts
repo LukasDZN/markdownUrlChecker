@@ -41,7 +41,6 @@ const recursiveAllPossibleInHrefLinksArrayBuilding = (
 
     // Initialize
     iterator(initialLevelXHeadersArrayOfObjects);
-    console.log(allPossibleInternalLinks);
     return allPossibleInternalLinks;
 };
 

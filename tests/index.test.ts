@@ -197,29 +197,46 @@ describe('mainTestGroup', () => {
     });
 
     it('Array of all possible internal links created.', () => {
-        // const expectedArray: Array<string> = [
-        //     ''
-        // ]
+        const expectedArray: Array<string> = [
+            '#introduction',
+            '#introduction--security',
+            '#introduction--version',
+            '#actions',
+            '#actions--account',
+            '#actions--account--change-status',
+            '#actions--account--change-status--request',
+            '#actions--account--change-status--response',
+            '#actions--account--change-program',
+            '#actions--account--change-program--request',
+            '#actions--account--change-program--response',
+            '#actions--account--get',
+            '#actions--account--get--request',
+            '#actions--account--get--response',
+            '#actions--account--assign-to-risk-rule-group',
+            '#actions--account--assign-to-risk-rule-group--request',
+            '#actions--account--assign-to-risk-rule-group--response'
+        ]
         // console.log(resultAllPossibleInternalLinksArray)
-        // expect(resultArray.sort()).toEqual(expectedArray.sort());
+        expect(resultAllPossibleInternalLinksArray.sort()).toEqual(expectedArray.sort());
     })
 
 
 
 
 
-    // it('Raise warnings for invalid internal links.', () => {
-    //     const expectedWarningArray: Array<string> = [
-    //         'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.',
-    //     ]
-    //     const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
-    //     console.log(resultWarningArray)
-    //     // expect(resultWarningArray.sort()).toEqual(expectedWarningArray.sort());
-    // })
+    it('Raise warnings for invalid internal links.', () => {
+        const expectedWarningArray: Array<string> = [
+            'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.',
+        ]
+        // console.log(internalLinkArray)
+        // const resultWarningArray: Array<string> = raiseWarningsForInvalidInternalLinks(internalLinkArray, resultAllPossibleInternalLinksArray)
+        // console.log(resultWarningArray)
+        // expect(resultWarningArray.sort()).toEqual(expectedWarningArray.sort());
+    })
 
     // How it works
     // 1. [DONE 01/10/2022] Parser creates an object from markdown.
-    // 2. [IN-PROGRESS] Another parser creates an array with all possible valid urls
+    // 2. [DONE 02/10/2022] Another parser creates an array with all possible valid urls
     // 3. [DONE 01/10/2022] Get all existing internal links from the doc
     // 4. [PENDING] Compare them against a list of valid possible links - throw errors and suggestions. 
 
