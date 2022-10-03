@@ -214,7 +214,7 @@ describe('mainTestGroup', () => {
         expect(resultAllPossibleInternalLinksArray.sort()).toEqual(expectedArray.sort());
     });
 
-    it.only('Raise warnings for invalid internal links.', () => {
+    it('Raise warnings for invalid internal links.', () => {
         const expectedWarningArray: Array<string> = [
             'WARNING: Internal link "(#test--test)" is not valid. Such header name and/or header nesting order does not exist.'
         ];
