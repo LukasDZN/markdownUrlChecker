@@ -2,6 +2,28 @@
 
 This Node JS script parses .md files within "input" directory and prints out an array of broken URLs that were found.
 
+## Prerequisites
+
+### Installation
+
+```bash
+npm install
+```
+
+### Production mode
+
+To log incorrect errors to the console:
+
+```bash
+npm run check
+```
+
+To log incorrect errors to the console and create .json files with errors in the 'output' directory.
+
+```bash
+npm run checkAndExport
+```
+
 ## General concept
 
 The URL checker works by:

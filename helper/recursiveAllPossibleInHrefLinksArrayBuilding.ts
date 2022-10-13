@@ -2,7 +2,7 @@ import { headerObject } from '../interfaces';
 
 const convertHeaderTitleToInternalLink = (headerTitle: string): string => {
     return headerTitle
-        .replace(/[^\w_\s]+/gm, '')  // Delete any non-word and non-space characters
+        .replace(/[^\w_\s]+/gm, '') // Delete any non-word and non-space characters
         .replace(/\s{2,}/g, ' ')
         .trim()
         .replace(/ /g, '-')
@@ -15,14 +15,13 @@ const recursiveAllPossibleInHrefLinksArrayBuilding = (
     const allPossibleInternalLinks: Array<string> = [];
 
     const iterator = (
-        // levelXHeadersArrayOfObjects: Array<headerObject>,
         levelXHeadersArrayOfObjects: Array<any>,
         headerLevel: number = 1,
         parentInternalLinkString: string = ''
     ) => {
         if (
-            Array.isArray(levelXHeadersArrayOfObjects) === true &&
-            levelXHeadersArrayOfObjects.length === 0 &&
+            Array.isArray(levelXHeadersArrayOfObjects) === false ||
+            levelXHeadersArrayOfObjects.length === 0 ||
             headerLevel > 6
         ) {
             return '';

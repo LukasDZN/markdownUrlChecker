@@ -1,0 +1,1 @@
+When a "npm run checkAndExport" command is run, this folder will be populated with .json files which contain a list of errors.

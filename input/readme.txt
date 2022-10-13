@@ -1,0 +1,1 @@
+In this folder you should put .md files that should be checked.

@@ -3,5 +3,5 @@ package-lock.json
 index.js
 interfaces.js
 tests/*.test.js
-dist
-input/*
+input/*.md
+output/*.json
